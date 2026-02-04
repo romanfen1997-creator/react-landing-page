@@ -26,10 +26,19 @@ export default function Hero() {
                     </div>
 
                     <div className="hero__visual" aria-hidden="true">
-                        <div className="hero__mock">
-                            <div className="hero__mockBar" />
-                            <div className="hero__mockBlock" />
-                            <div className="hero__mockBlock hero__mockBlock--small" />
+                        <div className="hero__preview">
+                            <div className="hero__previewTop">
+                                <div className="hero__dot" />
+                                <div className="hero__dot" />
+                                <div className="hero__dot" />
+                                <div className="hero__line" />
+                            </div>
+
+                            <div className="hero__previewGrid">
+                                <div className="hero__miniCard" />
+                                <div className="hero__miniCard" />
+                                <div className="hero__miniCard hero__miniCard--wide" />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -46,3 +46,50 @@
   .hero__grid { grid-template-columns: 1fr; }
   .hero__title { font-size: 36px; }
 }
+
+.hero__preview {
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 14px;
+  background: #fff;
+}
+
+.hero__previewTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.hero__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e5e5e5;
+}
+
+.hero__line {
+  height: 10px;
+  border-radius: 999px;
+  background: #f0f0f0;
+  flex: 1;
+  margin-left: 8px;
+}
+
+.hero__previewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.hero__miniCard {
+  height: 84px;
+  border-radius: 16px;
+  background: #f4f4f4;
+  border: 1px solid #eee;
+}
+
+.hero__miniCard--wide {
+  grid-column: 1 / -1;
+  height: 110px;
+}
