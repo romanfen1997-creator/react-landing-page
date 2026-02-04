@@ -1,13 +1,17 @@
-import { useMemo, useState } from "react";
+import {useMemo, useState} from "react";
 import Container from "../../layout/Container";
 import "./ContactForm.scss";
 
+// Demo-only client-side validation.
+// In production, validate on the backend as well (and use a more robust email strategy).
 function validate(values) {
     const errors = {};
     if (!values.name.trim()) errors.name = "Name is required.";
 
     const email = values.email.trim();
     if (!email) errors.email = "Email is required.";
+
+    // Simple email format check for demo purposes (not a full RFC validator).
     else if (!/^\S+@\S+\.\S+$/.test(email)) errors.email = "Enter a valid email.";
 
     if (values.message.trim().length < 10) errors.message = "Message must be at least 10 characters.";
@@ -32,18 +36,18 @@ export default function ContactForm() {
     const isValid = Object.keys(errors).length === 0;
 
     const setField = (field, value) => {
-        setValues((v) => ({ ...v, [field]: value }));
+        setValues((v) => ({...v, [field]: value}));
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        setTouched({ name: true, email: true, message: true, agree: true });
+        setTouched({name: true, email: true, message: true, agree: true});
 
         if (!isValid) return;
 
         setSubmitted(true);
-        // demo: reset
-        setValues({ name: "", email: "", message: "", agree: false });
+        // Demo: no real API request, just reset the form.
+        setValues({name: "", email: "", message: "", agree: false});
     };
 
     const showError = (field) => touched[field] && errors[field];
@@ -64,7 +68,7 @@ export default function ContactForm() {
                                 className={`contact__input ${showError("name") ? "is-invalid" : ""}`}
                                 value={values.name}
                                 onChange={(e) => setField("name", e.target.value)}
-                                onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+                                onBlur={() => setTouched((t) => ({...t, name: true}))}
                             />
                             {showError("name") && <div className="contact__error">{errors.name}</div>}
                         </label>
@@ -75,7 +79,7 @@ export default function ContactForm() {
                                 className={`contact__input ${showError("email") ? "is-invalid" : ""}`}
                                 value={values.email}
                                 onChange={(e) => setField("email", e.target.value)}
-                                onBlur={() => setTouched((t) => ({ ...t, email: true }))}
+                                onBlur={() => setTouched((t) => ({...t, email: true}))}
                             />
                             {showError("email") && <div className="contact__error">{errors.email}</div>}
                         </label>
@@ -87,7 +91,7 @@ export default function ContactForm() {
                             className={`contact__textarea ${showError("message") ? "is-invalid" : ""}`}
                             value={values.message}
                             onChange={(e) => setField("message", e.target.value)}
-                            onBlur={() => setTouched((t) => ({ ...t, message: true }))}
+                            onBlur={() => setTouched((t) => ({...t, message: true}))}
                             rows={5}
                         />
                         {showError("message") && <div className="contact__error">{errors.message}</div>}
@@ -98,7 +102,7 @@ export default function ContactForm() {
                             type="checkbox"
                             checked={values.agree}
                             onChange={(e) => setField("agree", e.target.checked)}
-                            onBlur={() => setTouched((t) => ({ ...t, agree: true }))}
+                            onBlur={() => setTouched((t) => ({...t, agree: true}))}
                         />
                         <span>I agree to the terms.</span>
                     </label>
