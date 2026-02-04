@@ -4,6 +4,7 @@ import Features from "./components/sections/Features/Features";
 import Cards from "./components/sections/Cards/Cards";
 import FAQ from "./components/sections/FAQ/FAQ";
 import ContactForm from "./components/sections/ContactForm/ContactForm";
+import Footer from "./components/layout/Footer/Footer";
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
                 <FAQ />
                 <ContactForm />
             </main>
+            <Footer />
         </>
     );
 }
