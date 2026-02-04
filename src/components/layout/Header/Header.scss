@@ -1,0 +1,46 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 50;
+
+  &__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  &__logo { font-weight: 700; }
+
+  &__nav { display: flex; gap: 16px; }
+  &__link { padding: 8px 10px; border-radius: 8px; }
+  &__link:hover { background: #f5f5f5; }
+
+  &__burger { display: none; background: transparent; border: 0; padding: 8px; }
+  &__burger span { display: block; width: 22px; height: 2px; background: #111; margin: 5px 0; }
+
+  &__backdrop { display: none; }
+}
+
+@media (max-width: 899px) {
+  .header {
+    &__burger { display: inline-block; }
+
+    &__nav {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 16px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__nav.is-open { display: flex; }
+
+    &__backdrop {
+      display: block;
+      position: fixed;
+      inset: 64px 0 0 0;
+      background: rgba(0,0,0,.25);
+    }
+  }
+}
