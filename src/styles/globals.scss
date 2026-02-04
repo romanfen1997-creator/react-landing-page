@@ -1,25 +1,23 @@
+@use "./mixins" as *;
 @use "./variables" as *;
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: #111;
-  background: #fff;
+  color: $color-text;
+  background: $color-bg;
 }
+
 a { color: inherit; text-decoration: none; }
 
-.container { width: min(1100px, 100% - 32px); margin: 0 auto; }
-.section { padding: 72px 0; }
+.container { @include container; }
+.section { padding: $section-padding 0; }
 
-h1,h2,h3 { margin: 0 0 12px; }
-p { margin: 0 0 12px; line-height: 1.5; }
+h1,h2,h3 { margin: 0 0 $space-text; }
+p { margin: 0 0 $space-text; line-height: 1.5; }
 
-:root {
-  scroll-padding-top: 72px; // высота header + небольшой отступ
-}
-section[id] {
-  scroll-margin-top: 72px;
-}
-
+:root { scroll-padding-top: $header-offset; }
+section[id] { scroll-margin-top: $header-offset; }

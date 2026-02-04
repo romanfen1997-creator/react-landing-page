@@ -1,0 +1,10 @@
+@use "./variables" as *;
+
+@mixin container {
+  width: min(#{$container-width}, 100% - #{$gutter});
+  margin: 0 auto;
+}
+
+@mixin mq($max) {
+  @media (max-width: $max) { @content; }
+}
