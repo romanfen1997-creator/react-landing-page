@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from "../Container";
 import "./Header.scss";
+import { scrollToHash } from "../../../utils/scrollToHash";
 
 const links = [
     { href: "#features", label: "Features" },
@@ -20,17 +21,32 @@ export default function Header() {
         return () => window.removeEventListener("resize", onResize);
     }, []);
 
+    const onNavClick = (e, href) => {
+        e.preventDefault();
+        setOpen(false);
+        scrollToHash(href, 72);
+    };
+
     return (
         <header className="header">
             <Container>
                 <div className="header__inner">
-                    <a className="header__logo" href="#top" onClick={() => setOpen(false)}>
+                    <a
+                        className="header__logo"
+                        href="#top"
+                        onClick={(e) => onNavClick(e, "#top")}
+                    >
                         Brand
                     </a>
 
                     <nav className={`header__nav ${open ? "is-open" : ""}`}>
                         {links.map((l) => (
-                            <a key={l.href} className="header__link" href={l.href} onClick={() => setOpen(false)}>
+                            <a
+                                key={l.href}
+                                className="header__link"
+                                href={l.href}
+                                onClick={(e) => onNavClick(e, l.href)}
+                            >
                                 {l.label}
                             </a>
                         ))}
