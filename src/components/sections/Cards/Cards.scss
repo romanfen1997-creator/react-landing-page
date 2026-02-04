@@ -1,5 +1,8 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
 .cards__title { font-size: 32px; }
-.cards__subtitle { max-width: 60ch; color: #444; }
+.cards__subtitle { max-width: 60ch; color: $color-muted; }
 
 .cards__grid {
   margin-top: 20px;
@@ -9,9 +12,10 @@
 }
 
 .cards__card {
-  border: 1px solid #eee;
-  border-radius: 16px;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
   padding: 16px;
+  background: $color-bg;
 }
 
 .cards__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
@@ -23,11 +27,11 @@
   display: inline-block;
   padding: 10px 14px;
   border-radius: 10px;
-  border: 1px solid #111;
-  background: #111;
-  color: #fff;
+  border: 1px solid $color-text;
+  background: $color-text;
+  color: $color-bg;
 }
 
-@media (max-width: 899px) {
+@include mq($bp-tablet) {
   .cards__grid { grid-template-columns: 1fr; }
 }

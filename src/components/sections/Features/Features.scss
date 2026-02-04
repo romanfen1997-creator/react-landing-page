@@ -1,5 +1,8 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
 .features__title { font-size: 32px; }
-.features__subtitle { max-width: 60ch; color: #444; }
+.features__subtitle { max-width: 60ch; color: $color-muted; }
 
 .features__grid {
   margin-top: 20px;
@@ -9,12 +12,12 @@
 }
 
 .features__card {
-  border: 1px solid #eee;
-  border-radius: 16px;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
   padding: 16px;
-  background: #fff;
+  background: $color-bg;
 }
 
-@media (max-width: 899px) {
+@include mq($bp-tablet) {
   .features__grid { grid-template-columns: 1fr; }
 }

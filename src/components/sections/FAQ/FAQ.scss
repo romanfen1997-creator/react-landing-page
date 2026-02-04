@@ -1,12 +1,19 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
 .faq__title { font-size: 32px; }
 
-.faq__list { margin-top: 16px; display: grid; gap: 12px; }
+.faq__list {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
 
 .faq__item {
-  border: 1px solid #eee;
-  border-radius: 16px;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
   overflow: hidden;
-  background: #fff;
+  background: $color-bg;
 }
 
 .faq__question {

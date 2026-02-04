@@ -1,24 +1,40 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
 .contact__title { font-size: 32px; }
-.contact__subtitle { max-width: 60ch; color: #444; }
+.contact__subtitle { max-width: 60ch; color: $color-muted; }
 
 .contact__success {
   margin-top: 12px;
   padding: 12px 14px;
   border: 1px solid #e6ffe6;
   background: #f3fff3;
-  border-radius: 12px;
+  border-radius: $radius-md;
 }
 
-.contact__form { margin-top: 16px; display: grid; gap: 14px; max-width: 720px; }
+.contact__form {
+  margin-top: 16px;
+  display: grid;
+  gap: 14px;
+  max-width: 720px;
+}
 
-.contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 899px) { .contact__row { grid-template-columns: 1fr; } }
+.contact__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@include mq($bp-tablet) {
+  .contact__row { grid-template-columns: 1fr; }
+}
 
 .contact__label { display: grid; gap: 6px; font-weight: 600; }
 
-.contact__input, .contact__textarea {
+.contact__input,
+.contact__textarea {
   border: 1px solid #ddd;
-  border-radius: 12px;
+  border-radius: $radius-md;
   padding: 10px 12px;
   font: inherit;
 }
@@ -33,12 +49,10 @@
   width: fit-content;
   padding: 10px 14px;
   border-radius: 10px;
-  border: 1px solid #111;
-  background: #111;
-  color: #fff;
+  border: 1px solid $color-text;
+  background: $color-text;
+  color: $color-bg;
   cursor: pointer;
 }
-.contact__button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+
+.contact__button:disabled { opacity: 0.5; cursor: not-allowed; }

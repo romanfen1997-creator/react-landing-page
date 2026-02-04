@@ -1,3 +1,6 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
 .hero__grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -7,18 +10,36 @@
 
 .hero__eyebrow {
   margin: 0 0 10px;
-  color: #444;
+  color: $color-muted;
   font-weight: 600;
   letter-spacing: 0.2px;
 }
 
-.hero__title { font-size: 44px; line-height: 1.08; margin: 0 0 14px; }
-.hero__text { color: #444; max-width: 60ch; }
+.hero__title {
+  font-size: 44px;
+  line-height: 1.08;
+  margin: 0 0 14px;
+}
 
-.hero__actions { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+.hero__text {
+  color: $color-muted;
+  max-width: 60ch;
+}
 
-.btn { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid #ddd; }
-.btn--primary { background: #111; color: #fff; border-color: #111; }
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+.btn--primary { background: $color-text; color: $color-bg; border-color: $color-text; }
 .btn--ghost { background: transparent; }
 
 .hero__meta {
@@ -31,18 +52,14 @@
 }
 
 .hero__visual {
-  border: 1px solid #eee;
-  border-radius: 18px;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
   padding: 18px;
-  background: #fafafa;
+  background: $color-bg-soft;
 }
 
-.hero__mock { display: grid; gap: 12px; }
-.hero__mockBar { height: 10px; border-radius: 999px; background: #e8e8e8; width: 60%; }
-.hero__mockBlock { height: 120px; border-radius: 16px; background: #f0f0f0; }
-.hero__mockBlock--small { height: 64px; }
-
-@media (max-width: 899px) {
+/* responsive */
+@include mq($bp-tablet) {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__title { font-size: 36px; }
 }
