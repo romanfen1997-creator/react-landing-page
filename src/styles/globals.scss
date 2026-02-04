@@ -21,3 +21,13 @@ p { margin: 0 0 $space-text; line-height: 1.5; }
 
 :root { scroll-padding-top: $header-offset; }
 section[id] { scroll-margin-top: $header-offset; }
+
+.page > .section {
+  &:nth-of-type(odd) {
+    background: $color-bg;
+  }
+
+  &:nth-of-type(even) {
+    background: $color-bg-soft;
+  }
+}

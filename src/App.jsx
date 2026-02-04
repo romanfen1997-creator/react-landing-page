@@ -10,7 +10,7 @@ export default function App() {
     return (
         <>
             <Header />
-            <main>
+            <main className="page">
                 <Hero />
                 <Features />
                 <Cards />
