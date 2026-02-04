@@ -1,0 +1,20 @@
+.features__title { font-size: 32px; }
+.features__subtitle { max-width: 60ch; color: #444; }
+
+.features__grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.features__card {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+}
+
+@media (max-width: 899px) {
+  .features__grid { grid-template-columns: 1fr; }
+}
