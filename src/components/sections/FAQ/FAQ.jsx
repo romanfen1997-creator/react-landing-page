@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Container from "../../layout/Container";
 import "./FAQ.scss";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle";
 
 const items = [
     { q: "Is this landing responsive?", a: "Yes. Layout switches to single-column on smaller screens." },
@@ -14,7 +15,9 @@ export default function FAQ() {
     return (
         <section id="faq" className="section faq">
             <Container>
-                <h2 className="faq__title">FAQ</h2>
+                <SectionTitle
+                    title="FAQ"
+                />
                 <div className="faq__list">
                     {items.map((it, idx) => {
                         const open = idx === openIndex;

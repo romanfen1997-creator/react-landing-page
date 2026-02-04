@@ -1,6 +1,7 @@
 import {useMemo, useState} from "react";
 import Container from "../../layout/Container";
 import "./ContactForm.scss";
+import SectionTitle from "../../ui/SectionTitle/SectionTitle.jsx";
 
 // Demo-only client-side validation.
 // In production, validate on the backend as well (and use a more robust email strategy).
@@ -55,8 +56,10 @@ export default function ContactForm() {
     return (
         <section id="contact" className="section contact">
             <Container>
-                <h2 className="contact__title">Contact</h2>
-                <p className="contact__subtitle">Send a message (client-side validation demo).</p>
+                <SectionTitle
+                    title="Contact"
+                    subtitle="Send a message (client-side validation demo)."
+                />
 
                 {submitted && <div className="contact__success">Thanks! Your message has been submitted.</div>}
 

@@ -1,5 +1,6 @@
 import Container from "../../layout/Container";
 import "./Hero.scss";
+import Button from "../../ui/Button/Button";
 
 export default function Hero() {
     return (
@@ -14,8 +15,8 @@ export default function Hero() {
                         </p>
 
                         <div className="hero__actions">
-                            <a className="btn btn--primary" href="#contact">Get in touch</a>
-                            <a className="btn btn--ghost" href="#features">View features</a>
+                            <Button href="#contact" variant="primary">Get in touch</Button>
+                            <Button href="#features" variant="ghost">View features</Button>
                         </div>
 
                         <div className="hero__meta">
