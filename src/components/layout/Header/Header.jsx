@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import Container from "../Container";
 import "./Header.scss";
 import { scrollToHash } from "../../../utils/scrollToHash";
@@ -12,6 +12,7 @@ const links = [
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const navId = useId();
 
     useEffect(() => {
         const onResize = () => {
@@ -20,6 +21,28 @@ export default function Header() {
         window.addEventListener("resize", onResize);
         return () => window.removeEventListener("resize", onResize);
     }, []);
+
+    // Close on ESC
+    useEffect(() => {
+        if (!open) return;
+
+        const onKeyDown = (e) => {
+            if (e.key === "Escape") setOpen(false);
+        };
+
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [open]);
+
+    // Lock body scroll when menu open (mobile)
+    useEffect(() => {
+        if (!open) return;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = prev;
+        };
+    }, [open]);
 
     const onNavClick = (e, href) => {
         e.preventDefault();
@@ -31,15 +54,11 @@ export default function Header() {
         <header className="header">
             <Container>
                 <div className="header__inner">
-                    <a
-                        className="header__logo"
-                        href="#top"
-                        onClick={(e) => onNavClick(e, "#top")}
-                    >
+                    <a className="header__logo" href="#top" onClick={(e) => onNavClick(e, "#top")}>
                         Brand
                     </a>
 
-                    <nav className={`header__nav ${open ? "is-open" : ""}`}>
+                    <nav id={navId} className={`header__nav ${open ? "is-open" : ""}`}>
                         {links.map((l) => (
                             <a
                                 key={l.href}
@@ -56,6 +75,7 @@ export default function Header() {
                         className="header__burger"
                         aria-label="Toggle menu"
                         aria-expanded={open}
+                        aria-controls={navId}
                         onClick={() => setOpen((v) => !v)}
                     >
                         <span />
