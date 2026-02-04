@@ -1,0 +1,31 @@
+.faq__title { font-size: 32px; }
+
+.faq__list { margin-top: 16px; display: grid; gap: 12px; }
+
+.faq__item {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.faq__question {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.faq__answer {
+  padding: 0 16px 14px;
+  color: #333;
+}
+
+.faq__icon { min-width: 20px; text-align: right; }
