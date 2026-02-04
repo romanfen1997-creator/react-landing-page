@@ -1,0 +1,33 @@
+@use "../../../styles/variables" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid $color-border;
+  background: transparent;
+  color: $color-text;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn--primary {
+  background: $color-text;
+  border-color: $color-text;
+  color: $color-bg;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: $color-border;
+}
+
+.btn.is-disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
